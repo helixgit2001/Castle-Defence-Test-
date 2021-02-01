@@ -20,7 +20,7 @@ public class Map implements Serializable {
     private static final int WIDTH = 600;
 
     // constructors
-    public Map(int[][] table, int length){
+    public Map(int[][] table, int length) {
         this.length = length;
         this.table = table;
         this.map = new Tile[length][length];
@@ -28,18 +28,18 @@ public class Map implements Serializable {
         this.group.setLayoutX(tileHeight * length);
         this.group.setLayoutX(tileHeight * length);
         for(int i = 0; i < length; i++){
-            for(int j = 0; j < length; j++){
+            for(int j = 0; j < length; j++) {
                 map[i][j] = new Tile(TypeOfTiles.values()[table[i][j]], j, i, WIDTH / length, this, length);group.getChildren().add(map[i][j]);
             }
         }
     }
 
-    public Map(int length){
+    public Map(int length) {
         this.length = length;
         this.tileHeight = ((int)Math.floor(WIDTH / length));
         this.map = new Tile[length][length];
         for(int i = 0; i < length; i++){
-            for(int j = 0; j < length; j++){
+            for(int j = 0; j < length; j++) {
                 map[i][j] = new Tile(TypeOfTiles.values()[0], j, i,WIDTH / length);
                 group.getChildren().add(map[i][j]);
             }
@@ -62,8 +62,8 @@ public class Map implements Serializable {
 
         int[][] mapArray = new int[length][length];
 
-        for(int i = 0; i < length; i++){
-            for(int j = 0; j < length; j++){
+        for(int i = 0; i < length; i++) {
+            for(int j = 0; j < length; j++) {
                 mapArray[i][j] = Integer.parseInt(bufferedReader.readLine());
             }
         }
@@ -77,7 +77,7 @@ public class Map implements Serializable {
      * @throws Exception
      */
 
-    public void writeMap(String nameOfMap) throws Exception{
+    public void writeMap(String nameOfMap) throws Exception {
         File file = new File("/home/helix/Desktop/Castle-Defence-Test/maps/" + nameOfMap + ".map");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream));

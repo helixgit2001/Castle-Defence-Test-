@@ -8,7 +8,7 @@ public class PowerTower extends Tower implements Serializable {
     private final double POWER = 100;
 
     public PowerTower(int player) {
-        super(player, TypeOfTowers.POWER_TOWER,"Power",2000,40,3,0,"/home/helix/Desktop/Castle-Defence-Test/images/power.png");
+        super(player, TypeOfTowers.POWER_TOWER,"Power", 2000, 40,3,0,"/home/helix/Desktop/Castle-Defence-Test/images/power.png");
     }
 
     public void power(Soldier soldier) {

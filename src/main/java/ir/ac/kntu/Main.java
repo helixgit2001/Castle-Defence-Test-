@@ -45,8 +45,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         try {
             SocketClass.run();
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            //System.out.println(e.getMessage());
         }
         launch();
     }
@@ -164,8 +164,8 @@ public class Main extends Application {
         VBox createMap = new VBox(5);
         Label addMapLabel = new Label("Enter your map name :");
         TextField mapNameField = new TextField();
-        Button addMapButton = new Button("find");
-        addMapButton.setOnAction(e -> {
+        Button addMapButton = new Button("choose");
+        addMapButton.setOnAction(event -> {
             try {
                 map = Map.readMap(mapNameField.getText().trim());
                 setTowersPane.setCenter(map.setTowers());
@@ -177,7 +177,7 @@ public class Main extends Application {
         addMap.getChildren().addAll(addMapLabel, mapNameField, addMapButton);
 
         Label createMapLabel = new Label("Create a new map !");
-        Button createMapButton = new Button("Create");
+        Button createMapButton = new Button(" create ");
         createMapButton.setOnAction(event -> stage.setScene(mapSceneCreation));
         createMap.getChildren().addAll(createMapLabel, createMapButton);
         parts.getChildren().addAll(addMap, createMap);
@@ -194,7 +194,7 @@ public class Main extends Application {
         HBox saveMapBox = new HBox(10);
         Label mapLengthLabel = new Label("Enter your map dimensions: ");
         TextField inputLengthField = new TextField();
-        Button getLengthMapButton = new Button("Create");
+        Button getLengthMapButton = new Button(" create ");
         getLengthMapButton.setOnAction(event -> {
             try {
                 int lengthOfMyMap = Integer.parseInt(inputLengthField.getText());
@@ -234,7 +234,7 @@ public class Main extends Application {
     public void selectCards(Stage stage){
         cardsSelectionPane = new BorderPane();
         cardsSelectionScene = new Scene(cardsSelectionPane,WIDTH + 200, HEIGHT);
-        Button next = new Button("next");
+        Button next = new Button(" next ");
         VBox vBox1 = new VBox(10);
         VBox vBox2 = new VBox(10);
         Soldiers.selectSoldier(player1, vBox1);
@@ -268,7 +268,7 @@ public class Main extends Application {
         setTowersPane.setLeft(towersVBox2);
     }
 
-    public void setPlayGround(){
+    public void setPlayGround() {
         groundPane = new BorderPane();
         MenuBar menuBar = new MenuBar();
         Menu file = new Menu(" file ");
@@ -304,7 +304,7 @@ public class Main extends Application {
                 else {
                     label = new Label(player2.getName() + " win! ");
                 }
-                Button button = new Button(" return ");
+                Button button = new Button(" back ");
                 box.getChildren().addAll(label, button);
                 box.setAlignment(Pos.CENTER);
                 pane.setCenter(box);

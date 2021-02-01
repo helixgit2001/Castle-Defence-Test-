@@ -33,7 +33,7 @@ public class Player implements Runnable , Serializable {
     private int lives = 3;
     private String name;
     private double energy;
-    private final Label livesLab = new Label("Lives : " + lives);
+    private final Label livesLab = new Label("lives : " + lives);
     private final Label nameLab = new Label();
     private final ProgressBar energyBar = new ProgressBar();
     private final TilePane playerPane = new TilePane(energyBar, livesLab, nameLab);
@@ -73,9 +73,9 @@ public class Player implements Runnable , Serializable {
                 System.out.println(e.getMessage());
             }
             addEnergy();
-            Platform.runLater(()->{
+            Platform.runLater(()-> {
                 energyBar.setProgress(getEnergy() / 100);
-                livesLab.setText("Lives : " + lives);
+                livesLab.setText("lives : " + lives);
             });
             for (Thread thread :threads){
                 try {
@@ -108,7 +108,7 @@ public class Player implements Runnable , Serializable {
         TextField nameField = new TextField();
         nameField.setPrefWidth(200);
         Button accept = new Button("set");
-        accept.setOnAction(e -> {
+        accept.setOnAction(event -> {
             if(nameField.getText().trim().equals("")){
                 name.setText("Enter Your Name : * This fields can't be empty *");
             }
@@ -159,9 +159,9 @@ public class Player implements Runnable , Serializable {
     }
 
     public Boolean decreaseEnergy(double dec) {
-        double newEnergy = this.energy - dec;
-        if(newEnergy >= 0){
-            this.energy = newEnergy ;
+        double plusEnergy = this.energy - dec;
+        if(plusEnergy >= 0) {
+            this.energy = plusEnergy ;
             return true;
         }
         return false;
@@ -171,12 +171,12 @@ public class Player implements Runnable , Serializable {
         boolean isGiant = false;
         boolean isWitch = false;
         this.soldiers = soldiers;
-        for(Soldiers soldiersList : soldiers){
+        for(Soldiers soldiersList : soldiers) {
             this.soldiersList.getChildren().add(soldiersList.getImageView());
-            if(soldiersList.getSoldier() instanceof Giant){
+            if(soldiersList.getSoldier() instanceof Giant) {
                 isGiant = true;
             }
-            else if(soldiersList.getSoldier() instanceof Witch){
+            else if(soldiersList.getSoldier() instanceof Witch) {
                 isWitch = true;
             }
         }
@@ -206,7 +206,7 @@ public class Player implements Runnable , Serializable {
         towers.remove(tower);
     }
 
-    public void hit(){
+    public void hit() {
         this.lives--;
         if(lives == 0) {
             running = false;

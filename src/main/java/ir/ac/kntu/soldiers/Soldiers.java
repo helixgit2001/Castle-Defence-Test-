@@ -92,9 +92,9 @@ public enum Soldiers implements Serializable {
         vBox.getChildren().add(label);
         RadioButton[] radioButtons = new RadioButton[NUM_OF_SOLDIERS];
         for(int i = 0; i < Soldiers.NUM_OF_SOLDIERS; i++){
-            radioButtons[i] = new RadioButton(Soldiers.values()[i].getName() + "\t\t" + "Damage: " + Soldiers.values()[i].getDamage() + "\t"
-                            + " Range: " + Soldiers.values()[i].getRange() + "\t" + " Speed: " + Soldiers.values()[i].getVelocity() + "\t"
-                            + " Health: " + Soldiers.values()[i].getHealth() + "\t" + " Energy: " + Soldiers.values()[i].getEnergy() + "\t");
+            radioButtons[i] = new RadioButton(Soldiers.values()[i].getName() + "\t\t" + " Health: " + Soldiers.values()[i].getHealth() + "\t"
+                    + " Energy: " + Soldiers.values()[i].getEnergy() + "\t"+ "Damage: " + Soldiers.values()[i].getDamage() + "\t"
+                    + " Range: " + Soldiers.values()[i].getRange() + "\t" + " Speed: " + Soldiers.values()[i].getVelocity() + "\t");
             vBox.getChildren().add(radioButtons[i]);
         }
         submitButton.setOnAction(event -> {
