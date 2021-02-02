@@ -5,10 +5,10 @@ import javafx.scene.paint.Color;
 import java.io.Serializable;
 
 public enum TypeOfTiles implements Serializable {
-    BLUE(Color.BLUE),
-    YELLOW(Color.YELLOW),
-    RED(Color.RED),
     GREY(Color.LIGHTGREY),
+    RED(Color.RED),
+    YELLOW(Color.YELLOW),
+    BLUE(Color.BLUE),
     GREEN(Color.GREEN);
 
     private final Color tileColor;
