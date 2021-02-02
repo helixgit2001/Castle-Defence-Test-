@@ -104,10 +104,10 @@ public enum Soldiers implements Serializable {
                     numOfSelectedCards++;
                 }
             }
-            if(numOfSelectedCards == NUM_OF_SELECTED_CARDS){
+            if(numOfSelectedCards == NUM_OF_SELECTED_CARDS) {
                 ArrayList<Soldiers> cards = new ArrayList<>();
-                for(int i = 0; i< NUM_OF_SOLDIERS; i++){
-                    if(radioButtons[i].isSelected()){
+                for(int i = 0; i< NUM_OF_SOLDIERS; i++) {
+                    if(radioButtons[i].isSelected()) {
                         cards.add(Soldiers.values()[i]);
                     }
                 }
