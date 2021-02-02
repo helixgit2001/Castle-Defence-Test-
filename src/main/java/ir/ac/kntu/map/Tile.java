@@ -30,7 +30,7 @@ public class Tile extends Rectangle implements Serializable {
      * @param dimensions
      */
 
-    public Tile(TypeOfTiles type, int x, int y, int dimensions){
+    public Tile(TypeOfTiles type, int x, int y, int dimensions) {
         super(x * dimensions,y * dimensions, dimensions, dimensions);
         this.x = x;
         this.y = y;
@@ -95,7 +95,7 @@ public class Tile extends Rectangle implements Serializable {
     public ArrayList<Tile> nextTiles(int id) {
         ArrayList<Tile> tiles = new ArrayList<>();
         if(id == 1 && y + 1 < length) {
-            if(map.getTable()[y + 1][x] == 2 || map.getTable()[y + 1][x] == 3 ){
+            if(map.getTable()[y + 1][x] == 2 || map.getTable()[y + 1][x] == 3 ) {
                 tiles.add(map.getMap()[y + 1][x]);
             }
         }
@@ -205,15 +205,15 @@ public class Tile extends Rectangle implements Serializable {
      */
     
     public Soldier findDamagedSoldiers(int range, int playerId) {
-        for(int i = -range; i <= range; i++){
+        for(int i = -range; i <= range; i++) {
             if(x + i < 0 || x + i >= map.getLength()) {
                 continue;
             }
-            for(int j = -range; j <= range; j++){
-                if(y + j < 0 || y + j >= map.getLength()){
+            for(int j = -range; j <= range; j++) {
+                if(y + j < 0 || y + j >= map.getLength()) {
                     continue;
                 }
-                if(map.getTable()[y + j][x + i] == 2){
+                if(map.getTable()[y + j][x + i] == 2) {
                     Soldier soldier = map.getMap()[y + j][x + i].getSoldier(playerId);
                     if(soldier != null && soldier.isDamaged()){
                         return soldier;
@@ -232,7 +232,7 @@ public class Tile extends Rectangle implements Serializable {
      */
 
     public Tower findTower(int range, int playerId) {
-        if(range > 1){
+        if(range > 1) {
             for(int i = -range; i <= range; i++) {
                 if(x + i < 0 || x + i >= map.getLength()) {
                     continue;
@@ -252,7 +252,7 @@ public class Tile extends Rectangle implements Serializable {
         }
         else {
             for(int i = -range; i <= range; i++) {
-                if(x + i< 0 || x + i >= map.getLength()) {
+                if(x + i < 0 || x + i >= map.getLength()) {
                     continue;
                 }
                 if(map.getTable()[y][x + i] == 1 || map.getTable()[y][x + i] == 4) {

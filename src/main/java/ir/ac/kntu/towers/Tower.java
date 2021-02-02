@@ -13,8 +13,8 @@ import java.io.FileInputStream;
 import java.io.Serializable;
 
 public class Tower implements Runnable, Serializable {
+    // fields
     public static final int IMAGE_HEIGHT = 64;
-
     private String name;
     private final int player;
     private final double initHealth;
@@ -30,8 +30,9 @@ public class Tower implements Runnable, Serializable {
     private BorderPane towerPane = new BorderPane();
     private final ProgressBar healthBar = new ProgressBar();
     private boolean alive = true;
+    //constructors
 
-    public Tower(int player, TypeOfTowers type, String name, double health, int energy, int range, double damage, String image){
+    public Tower(int player, TypeOfTowers type, String name, double health, int energy, int range, double damage, String image) {
         healthBar.setStyle("-fx-accent: green;");
         this.player = player;
         initHealth = health;
@@ -81,7 +82,7 @@ public class Tower implements Runnable, Serializable {
         healthBar.setProgress(health / initHealth);
     }
 
-    public void getPower(double extraHealth){
+    public void getPower(double extraHealth) {
         double newHealth = this.health + extraHealth;
         health = Math.min(newHealth, initHealth);
         healthBar.setProgress(health / initHealth);
@@ -134,7 +135,7 @@ public class Tower implements Runnable, Serializable {
         this.map = map;
     }
 
-    public void dead(){
+    public void dead() {
         this.alive = false;
         Platform.runLater(()->{
             map.removeFromMap(this.towerPane);
@@ -142,7 +143,7 @@ public class Tower implements Runnable, Serializable {
         this.tile.removeTower();
     }
 
-    public void shoot(Soldier soldier){
+    public void shoot(Soldier soldier) {
         if(soldier != null){
             soldier.takeDamage(damage);
         }
@@ -153,7 +154,7 @@ public class Tower implements Runnable, Serializable {
         while(alive){
             try{
                 Thread.sleep(1000);
-            } catch (Exception e){
+            } catch (Exception e) {
 
             }
             if(alive) {

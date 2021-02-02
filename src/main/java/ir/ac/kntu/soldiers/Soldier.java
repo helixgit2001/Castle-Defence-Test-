@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class Soldier implements Runnable, Serializable {
     private static final int ONE_SECOND = 1000;
     // fields
-
     private final Player player;
     private final String name;
     private final double energy;
@@ -216,16 +215,16 @@ public class Soldier implements Runnable, Serializable {
                 soldier.takeDamage(damage);
             }
         }
-        else{
-            ArrayList<Tile> neighbours = tile.nextTiles(player.getPlayerId());
-            neighbours.remove(last);
-            if(neighbours.size() == 0){
+        else {
+            ArrayList<Tile> near = tile.nextTiles(player.getPlayerId());
+            near.remove(last);
+            if(near.size() == 0){
                 dead();
             }
             else {
-                moveToAnotherTile(neighbours.get(0));
+                moveToAnotherTile(near.get(0));
             }
-            neighbours.clear();
+            near.clear();
         }
     }
 
@@ -237,14 +236,14 @@ public class Soldier implements Runnable, Serializable {
             if(tower != null){
                 try {
                     Thread.sleep(ONE_SECOND);
-                } catch (Exception e){
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
                 if(alive) {
                     tower.takeDamage(damage);
                 }
             }
-            else if(soldier != null){
+            else if(soldier != null) {
                 try {
                     Thread.sleep(ONE_SECOND);
                 } catch (Exception e){

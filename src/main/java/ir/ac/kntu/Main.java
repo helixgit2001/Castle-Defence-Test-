@@ -46,7 +46,6 @@ public class Main extends Application {
         try {
             SocketClass.run();
         } catch (Exception e) {
-            //System.out.println(e.getMessage());
         }
         launch();
     }
@@ -122,7 +121,7 @@ public class Main extends Application {
         });
     }
 
-    public void initSet(Stage primaryStage){
+    public void initSet(Stage primaryStage) {
         player1 = new Player();
         player2 = new Player();
         player1Thread = new Thread(player1);
@@ -138,7 +137,7 @@ public class Main extends Application {
         primaryStage.setScene(beginningScene);
     }
 
-    public void beginningScreen(Stage stage){
+    public void beginningScreen(Stage stage) {
         beginningPane = new BorderPane();
         beginningScene = new Scene(beginningPane, WIDTH, HEIGHT);
         VBox input = new VBox(20);
@@ -156,7 +155,7 @@ public class Main extends Application {
         stage.centerOnScreen();
     }
 
-    public void setTowerMap(Stage stage){
+    public void setTowerMap(Stage stage) {
         mapPane = new Pane();
         mapScene = new Scene(mapPane, WIDTH, HEIGHT);
         VBox parts = new VBox(100);
@@ -187,7 +186,7 @@ public class Main extends Application {
         mapPane.getChildren().addAll(parts);
     }
 
-    public void createMap(Stage stage){
+    public void createMap(Stage stage) {
         mapPaneCreation = new BorderPane();
         mapSceneCreation = new Scene(mapPaneCreation, WIDTH, HEIGHT);
         HBox inputHeightBox = new HBox(10);
@@ -231,7 +230,7 @@ public class Main extends Application {
         mapPaneCreation.setBottom(saveMapBox);
     }
 
-    public void selectCards(Stage stage){
+    public void selectCards(Stage stage) {
         cardsSelectionPane = new BorderPane();
         cardsSelectionScene = new Scene(cardsSelectionPane,WIDTH + 200, HEIGHT);
         Button next = new Button(" next ");
@@ -246,7 +245,7 @@ public class Main extends Application {
 
     }
 
-    public void gameScreen(Stage stage){
+    public void gameScreen(Stage stage) {
         setTowersPane = new BorderPane();
         setTowersScene = new Scene(setTowersPane, WIDTH, HEIGHT);
         VBox towersVBox1 = player1.getTowers();
@@ -298,7 +297,7 @@ public class Main extends Application {
                 VBox box = new VBox(10);
                 Scene scene = new Scene(pane,500, 500);
                 Label label;
-                if(player1.getLives()!=0) {
+                if(player1.getLives() != 0) {
                     label = new Label(player1.getName()+" win! ");
                 }
                 else {

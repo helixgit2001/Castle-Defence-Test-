@@ -32,7 +32,7 @@ public enum Soldiers implements Serializable {
     private final static int NUM_OF_SOLDIERS = 12;
     private static final int NUM_OF_SELECTED_CARDS = 4;
 
-    Soldiers(Soldier soldier, String imgOfSoldier){
+    Soldiers(Soldier soldier, String imgOfSoldier) {
         this.soldier = soldier;
         try {
             FileInputStream fileInputStream = new FileInputStream(imgOfSoldier);
@@ -88,7 +88,7 @@ public enum Soldiers implements Serializable {
 
     public static void selectSoldier(Player player, VBox vBox) {
         Button submitButton = new Button("Set");
-        Label label = new Label("Select Soldiers For "+player.getName()+" :");
+        Label label = new Label("Select Soldiers For " + player.getName()+" :");
         vBox.getChildren().add(label);
         RadioButton[] radioButtons = new RadioButton[NUM_OF_SOLDIERS];
         for(int i = 0; i < Soldiers.NUM_OF_SOLDIERS; i++){

@@ -24,7 +24,6 @@ public class Player implements Runnable , Serializable {
     private static final int SLEEP_TIME = 100;
     private static final int NUM_OF_TOWERS = 3;
     private static int num = 0;
-
     private final ArrayList<Thread> threads = new ArrayList<>();
     private Soldier selectedSoldier;
     private final int playerId;
@@ -43,7 +42,7 @@ public class Player implements Runnable , Serializable {
     private final VBox towersList = new VBox();
     private final VBox soldiersList = new VBox();
 
-    public Player(){
+    public Player() {
         this.playerId = num++;
         this.energy = 0;
         energyBar.setPrefSize(180,10);
@@ -69,7 +68,7 @@ public class Player implements Runnable , Serializable {
         while(running) {
             try{
                 Thread.sleep(SLEEP_TIME);
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
             addEnergy();
@@ -77,7 +76,7 @@ public class Player implements Runnable , Serializable {
                 energyBar.setProgress(getEnergy() / 100);
                 livesLab.setText("lives : " + lives);
             });
-            for (Thread thread :threads){
+            for (Thread thread :threads) {
                 try {
                     if(thread.isInterrupted()){
                         System.out.println("interrupt");

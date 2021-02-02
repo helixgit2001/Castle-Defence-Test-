@@ -12,13 +12,13 @@ public class Musketeer extends Soldier implements Serializable {
     private final double POWER = 100;
 
     public Musketeer(Player player) {
-        super(player,"Musketeer",30,300,1,0,3, Color.MINTCREAM);
+        super(player,"Musketeer",30,300,1,0,3, Color.WHEAT);
     }
     @Override
-    public void move(){
+    public void move() {
         try {
             Thread.sleep(1000);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         Tower tower = getTile().findADamagedTower(getRange(), getPlayer().getPlayerId());
@@ -26,7 +26,7 @@ public class Musketeer extends Soldier implements Serializable {
         if(tower != null) {
             try {
                 Thread.sleep(1000);
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
             if(isAlive()) {
@@ -36,7 +36,7 @@ public class Musketeer extends Soldier implements Serializable {
         else if(soldier != null) {
             try {
                 Thread.sleep(1000);
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
             if(isAlive()) {
@@ -46,7 +46,7 @@ public class Musketeer extends Soldier implements Serializable {
         else{
             ArrayList<Tile> neighbours = getTile().nextTiles(getPlayer().getPlayerId());
             neighbours.remove(getLast());
-            if(neighbours.size() == 0){
+            if(neighbours.size() == 0) {
                 dead();
             }
             else {
@@ -71,7 +71,7 @@ public class Musketeer extends Soldier implements Serializable {
                     tower.getPower(POWER);
                 }
             }
-            else if(soldier != null){
+            else if(soldier != null) {
                 try {
                     Thread.sleep(1000);
                 } catch (Exception e){

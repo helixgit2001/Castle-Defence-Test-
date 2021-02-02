@@ -27,7 +27,7 @@ public class Map implements Serializable {
         this.tileHeight = (WIDTH / length);
         this.group.setLayoutX(tileHeight * length);
         this.group.setLayoutX(tileHeight * length);
-        for(int i = 0; i < length; i++){
+        for(int i = 0; i < length; i++) {
             for(int j = 0; j < length; j++) {
                 map[i][j] = new Tile(TypeOfTiles.values()[table[i][j]], j, i, WIDTH / length, this, length);group.getChildren().add(map[i][j]);
             }
@@ -38,7 +38,7 @@ public class Map implements Serializable {
         this.length = length;
         this.tileHeight = ((int)Math.floor(WIDTH / length));
         this.map = new Tile[length][length];
-        for(int i = 0; i < length; i++){
+        for(int i = 0; i < length; i++) {
             for(int j = 0; j < length; j++) {
                 map[i][j] = new Tile(TypeOfTiles.values()[0], j, i,WIDTH / length);
                 group.getChildren().add(map[i][j]);
@@ -68,7 +68,7 @@ public class Map implements Serializable {
             }
         }
         bufferedReader.close();
-        return new Map(mapArray,length);
+        return new Map(mapArray, length);
     }
 
     /**
@@ -109,7 +109,7 @@ public class Map implements Serializable {
      * @return
      */
 
-    public Group setTowers(){
+    public Group setTowers() {
         this.group.setOnMouseClicked(event -> {
             Tower tower = Main.getThisTower();
             Player player = Main.getThisPlayer();
